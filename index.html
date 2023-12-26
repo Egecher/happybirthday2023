@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stil.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <title>Birthday Message</title>
+    <link rel="shortcut icon" href="images/cake.png">
+</head>
+<body>
+    <div class="loader-container" id="loaderContainer">
+        <button id="playButton">Touch me</button>
+        <div class="loader"></div>
+    </div>
+    <div class="container">
+        <h1>Happy Birthday</h1>
+        <p>born 29.12.2006 </p>
+        <p>Happy birthday! Wishing you a new beginning for every day and a happy ending for every night.</p>
+        <p>I'm so happy that I met you and that you are a part of my life.</p>
+        <p>May health, success, happiness, money and love be with you,
+            always be with me too.</p>
+            <p>I hope this year will be your best and greatest beginning.</p>
+
+        <p>date 29.12.2023</p>
+    </div>
+
+    <audio id="audioPlayer">
+        <source src="sound/sound.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        $(document).ready(function () {
+            $("#playButton").on("click", function () {
+                $("#playButton").prop("disabled", true); // Butonu tıklanamaz yap
+                $("#loaderContainer").fadeIn(500);
+
+                // Ses dosyasını çal
+                $("#audioPlayer")[0].play();
+
+                // Loader ve butonu 5 saniye sonra gizle
+                setTimeout(function () {
+                    $("#loaderContainer, #playButton").fadeOut(500);
+                }, 5000);
+            });
+        });
+    </script>
+</body>
+</html>
